@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "packages/backend/package.json",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "packages/frontend",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "packages/frontend" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/auth(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/campaigns(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/donations(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/rewards(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/missions(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/users(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/admin(.*)",
+      "dest": "packages/backend/src/server.js"
+    },
+    {
+      "src": "/(?!api/|auth|campaigns|donations|rewards|missions|users|admin)(.*)",
+      "dest": "packages/frontend/$1"
+    },
+    {
+      "src": "/(.*\\..*)",
+      "dest": "packages/frontend/$1"
+    },
+    {
+      "src": "/",
+      "dest": "packages/frontend/beranda/index.html"
+    }
+  ]
+}

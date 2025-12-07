@@ -1,0 +1,173 @@
+:root {
+    --color-primary: #347C8B; 
+    --color-secondary: #57b7a2; 
+    --color-dark: #333;
+    --color-light: #fff;
+    --color-grey-light: #f5f5f5;
+    --color-grey-dark: #666;
+    --color-success: #27ae60;
+    --color-alert-danger: #e74c3c;
+    --color-alert-warning: #f1c40f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.verification-main {
+    padding-top: 100px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.verification-container {
+    display: flex;
+    gap: 20px;
+    padding: 30px 20px;
+}
+
+.campaign-list-column {
+    flex: 1;
+    min-width: 350px;
+    max-height: 80vh; 
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.list-header {
+    font-size: 1.5em;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-grey-light);
+}
+
+.campaign-item-card {
+    background: var(--color-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.campaign-item-card:hover {
+    background: #f0f8ff;
+    border-left-color: var(--color-secondary);
+}
+
+.campaign-item-card.selected {
+    border-left: 5px solid var(--color-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #e6f7ff;
+}
+
+.campaign-item-card h4 {
+    font-size: 1.1em;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.campaign-item-card p {
+    font-size: 0.85em;
+    color: var(--color-grey-dark);
+    line-height: 1.4;
+}
+
+.campaign-detail-column {
+    flex: 3;
+    background: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.detail-placeholder {
+    text-align: center;
+    padding: 50px;
+    color: var(--color-grey-dark);
+}
+
+.detail-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-grey-light);
+}
+
+.detail-header h2 {
+    font-size: 2em;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.detail-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--color-grey-light);
+    border-radius: 5px;
+}
+
+.detail-section h3 {
+    font-size: 1.2em;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.detail-section p {
+    font-size: 1em;
+    color: var(--color-dark);
+    white-space: pre-wrap;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-grey-light);
+    justify-content: flex-end;
+}
+
+.btn-approve {
+    background-color: var(--color-success);
+    color: var(--color-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-reject {
+    background-color: var(--color-alert-danger);
+    color: var(--color-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-approve:hover, .btn-reject:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 992px) {
+    .verification-container {
+        flex-direction: column;
+    }
+    .campaign-list-column {
+        min-width: 100%;
+        order: 2;
+    }
+    .campaign-detail-column {
+        order: 1;
+    }
+}

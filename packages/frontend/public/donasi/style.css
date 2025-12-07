@@ -1,0 +1,236 @@
+:root {
+    --color-primary: #347C8B; 
+    --color-secondary: #57b7a2; 
+    --color-dark: #333;
+    --color-light: #fff;
+    --color-grey-light: #f5f5f5;
+    --color-grey-dark: #666;
+    --color-navbar-bg: #478492; 
+}
+
+
+
+.main-header.donation-header-bg {
+    height: auto;
+    padding-bottom: 50px;
+}
+.donation-header-content {
+    text-align: center;
+    padding-top: 120px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.donation-header-content h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--color-primary);
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+.header-subtext {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+
+.category-filter-section {
+    padding: 0 5%; 
+    max-width: 1200px;
+    margin: -70px auto 10px auto;
+    position: relative;
+    z-index: 5;
+}
+
+.category-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: var(--color-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: var(--color-grey-light);
+}
+
+.category-item i {
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.category-item.active {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    box-shadow: 0 4px 10px rgba(52, 124, 139, 0.4);
+}
+.category-item.active i {
+    color: var(--color-light);
+}
+
+
+
+
+.latest-campaigns-section {
+    padding: 0 5% 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header-row h2 {
+    font-size: 2em;
+    color: var(--color-dark);
+}
+
+.btn-all-events {
+    color: var(--color-primary);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.btn-all-events:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+
+.search-bar-container {
+    position: relative;
+    margin-bottom: 20px; 
+    max-width: 500px;
+}
+.search-input {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 1em;
+    outline: none;
+}
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+
+.campaign-grid-full {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.campaign-card-v2 {
+    background-color: var(--color-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+.campaign-card-v2:hover {
+    transform: translateY(-5px);
+}
+
+.campaign-card-v2 img.card-image-v2 {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content-v2 {
+    padding: 15px 20px;
+}
+
+.campaign-desc {
+    font-size: 0.9em;
+    color: var(--color-grey-dark);
+    margin-bottom: 15px;
+    height: 2.7em; 
+    overflow: hidden;
+}
+
+.progress-bar-v2 {
+    background-color: var(--color-grey-light);
+    height: 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-v2 span {
+    display: block;
+    height: 100%;
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+}
+
+.progress-info-v2 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+}
+
+.btn-details-v2.donasi-sekarang {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-secondary); 
+    color: var(--color-light) !important;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.btn-details-v2.donasi-sekarang:hover {
+    background-color: #4a9e86;
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .campaign-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .donation-header-content h1 {
+        font-size: 2em;
+    }
+    .category-grid {
+        flex-wrap: wrap;
+        padding: 15px;
+        gap: 10px;
+    }
+    .category-item {
+        flex-basis: 45%; 
+        padding: 10px 5px;
+    }
+    .campaign-grid-full {
+        grid-template-columns: 1fr; 
+    }
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonasiYuk | Buat Kampanye Baru</title>
+    <link rel="stylesheet" href="../beranda/style.css"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar fixed-top"> 
+        <div class="logo">DonasiYuk</div>
+        
+        <ul class="nav-links">
+            <li><a href="../beranda/index.html">Beranda</a></li>
+            <li><a href="../donasi/index.html">Donasi</a></li> 
+            <li><a href="../kampanye/index.html" class="active">Kampanye</a></li>
+            <li><a href="../about-us/index.html">Tentang Kami</a></li>
+        </ul>
+        
+       <div class="user-profile-widget">
+        <i class="fas fa-bell icon-notification" id="notification-bell"></i>
+        <i class="fas fa-cog icon-settings"></i>
+        <a href="../profile/index.html" class="user-profile-link">
+            <i class="fas fa-user user-profile-icon"></i>
+            <div class="user-details">
+            <span class="username">Memuat...</span>
+            <span class="user-handle">@handle</span>
+            </div>
+        </a>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <main class="form-campaign-main">
+        <div class="container-form-campaign">
+            
+            <header class="form-header">
+                <h1 class="main-heading">Buat Kampanye Penggalangan Dana Baru</h1>
+                <p class="instruction-text">Lengkapi detail kampanye Anda. Data ini akan diverifikasi oleh Admin dalam waktu 1x24 jam sebelum tayang.</p>
+            </header>
+
+            <form id="campaign-form" class="campaign-form">
+                
+                <section class="form-section-card" data-step="1">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i> 1. Informasi Dasar</h2>
+                    
+                    <div class="form-group">
+                        <label for="title">Judul Kampanye *</label>
+                        <input type="text" id="title" placeholder="Contoh: Bantuan Air Bersih untuk Desa Sukamaju" required maxlength="100">
+                        <p class="input-hint">Maksimal 100 karakter. Judul harus jelas dan menarik.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Kategori *</label>
+                        <select id="category" required>
+                            <option value="">Pilih Kategori</option>
+                            <option value="Pendidikan">Pendidikan</option>
+                            <option value="Air Bersih">Air Bersih</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="Komunitas Lokal">Komunitas Lokal</option>
+                            <option value="Lingkungan">Lingkungan</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group grid-2">
+                        <div class="input-wrapper">
+                            <label for="goal">Target Dana (Rp) *</label>
+                            <input type="number" id="goal" placeholder="Min. 5.000.000" required min="5000000">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="deadline">Batas Waktu (Hari) *</label>
+                            <input type="number" id="deadline" placeholder="Max. 90 hari" required min="7" max="90">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section-card" data-step="2">
+                    <h2 class="section-title"><i class="fas fa-file-alt"></i> 2. Deskripsi & Narasi</h2>
+                    
+                    <div class="form-group">
+                        <label for="short-desc">Deskripsi Singkat *</label>
+                        <textarea id="short-desc" rows="3" placeholder="Jelaskan secara singkat tujuan kampanye (maks. 200 karakter)." required maxlength="200"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="full-story">Cerita Lengkap (Narasi) *</label>
+                        <textarea id="full-story" rows="10" placeholder="Jelaskan secara mendalam mengapa dana ini dibutuhkan, siapa yang akan dibantu, dan dampak yang diharapkan." required></textarea>
+                        <p class="input-hint">Semakin detail cerita Anda, semakin besar peluang donasi.</p>
+                    </div>
+                </section>
+
+                <section class="form-section-card" data-step="3">
+                    <h2 class="section-title"><i class="fas fa-images"></i> 3. Media & Visual</h2>
+                    
+                    <div class="form-group" id="image-preview-container">
+                        <p class="input-hint">Pratinjau gambar berdasarkan kategori yang dipilih:</p>
+                        <img id="campaign-image-preview" src="" alt="Campaign Preview" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; display: none; background-color: var(--color-grey-light);">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="main-image">Gambar Utama Kampanye *</label>
+                        <input type="file" id="main-image" accept="image/*" required>
+                        <p class="input-hint">Pilih gambar berkualitas tinggi yang mewakili kampanye Anda. (Akan menimpa preview di atas)</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="document-image">Dokumentasi Tambahan (Bukti/Foto Lapangan)</label>
+                        <input type="file" id="document-image" accept="image/*" multiple>
+                        <p class="input-hint">Opsional. Foto lapangan, surat izin, atau bukti kebutuhan sangat disarankan.</p>
+                    </div>
+                </section>
+
+                <section class="form-section-card" data-step="4">
+                    <h2 class="section-title"><i class="fas fa-check-circle"></i> 4. Persetujuan Admin</h2>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms-agree" required>
+                            Saya menyetujui <a href="#">Syarat & Ketentuan</a> dan memastikan semua data yang diinput adalah benar dan valid.
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="verification-agree" required>
+                            Saya memahami bahwa kampanye akan berstatus 'Menunggu Verifikasi' dan baru akan tayang setelah disetujui Admin DonasiYuk.
+                        </label>
+                    </div>
+                </section>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" id="submit-button">SUBMIT UNTUK VERIFIKASI</button>
+                    <button type="button" class="btn-secondary" id="save-draft-button">SIMPAN SEBAGAI DRAFT</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">DonasiYuk</div>
+            <div class="footer-links">
+                <p>Fitur</p>
+                <ul>
+                    <li><a href="#">Donasi</a></li>
+                    <li><a href="#">Transparansi</a></li>
+                    <li><a href="#">Relawan</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Perusahaan</p>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Legal</p>
+                <ul>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DonasiYuk. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-modal-content">
+            <div class="modal-header-notif">
+                <h2>Notifikasi Terbaru</h2>
+                <span class="close-notif-btn">&times;</span> 
+            </div>
+            <div id="notification-list">
+                <p style="text-align: center; color: var(--color-grey-dark); padding: 20px;">Memuat notifikasi...</p>
+            </div>
+            <a href="#" class="view-all-notif">Lihat Semua</a>
+        </div>
+    </div>
+    <script src="../global/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

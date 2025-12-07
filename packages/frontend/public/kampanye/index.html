@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonasiYuk | Pengelolaan Kampanye Saya</title>
+    <link rel="stylesheet" href="../beranda/style.css"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar fixed-top"> 
+        <div class="logo">DonasiYuk</div>
+        
+        <ul class="nav-links">
+            <li><a href="../beranda/index.html">Beranda</a></li>
+            <li><a href="../donasi/index.html">Donasi</a></li> 
+            <li><a href="#" class="active">Kampanye</a></li>
+            <li><a href="../about-us/index.html">Tentang Kami</a></li>
+        </ul>
+        
+        <div class="user-profile-widget">
+            <i class="fas fa-bell icon-notification" id="notification-bell"></i>
+            <i class="fas fa-cog icon-settings"></i>
+            <a href="../profile/index.html" class="user-profile-link">
+                <i class="fas fa-user user-profile-icon"></i>
+                <div class="user-details">
+                <span class="username">Memuat...</span>
+                <span class="user-handle">@handle</span>
+                </div>
+            </a>
+            </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <main class="campaign-dashboard-main">
+        <div class="container-dashboard">
+            
+            <header class="header">
+                <h2 class="title">Pelacakan dan Manajemen Kampanye</h2>
+            </header>
+
+            <section class="filter-section">
+                <div class="dropdown">
+                  <label>Mode</label>
+                  <select id="mode-select">
+                    <option value="monthly">Bulanan</option>
+                    <option value="quarterly">Kuarta</option>
+                    <option value="yearly">Tahunan</option>
+                  </select>
+                </div>
+
+                <div class="year-buttons" id="year-buttons">
+                  </div>
+
+                <button id="add-year-btn" class="add-year">+ Tambah Tahun</button>
+            </section>
+
+            <section class="dashboard-grid">
+                
+                <div class="card chart-card">
+                  <canvas id="donationChart"></canvas>
+                </div>
+
+                <div class="card total-donasi-card">
+                  <h3>Total Donasi</h3>
+                  <p id="total-donasi">Rp0</p>
+                  <span id="donasi-trend" class="trend"></span>
+                </div>
+
+                <div class="card total-kampanye-card">
+                  <h3>Total Kampanye</h3>
+                  <p id="total-kampanye">0</p>
+                  <span id="kampanye-trend" class="trend"></span>
+                </div>
+
+                <div class="card kategori-card">
+                  <h3>Kategori Kampanye</h3>
+                  <ul id="kategori-list"></ul>
+                </div>
+            </section>
+            
+            <section class="campaign-list-section">
+                <div class="campaign-header-row">
+                    <h2>Daftar Kampanye Saya</h2>
+                    <a href="../create-campaign/index.html" class="btn-primary" id="btn-create-campaign">BUAT KAMPANYE BARU</a>
+                </div>
+                
+                <div class="status-filters">
+                    <button class="filter-btn active" data-status="all">SEMUA</button>
+                    <button class="filter-btn" data-status="pending">MENUNGGU VERIFIKASI</button>
+                    <button class="filter-btn" data-status="active">AKTIF</button>
+                    <button class="filter-btn" data-status="completed">SELESAI</button>
+                </div>
+                
+                <div class="campaign-grid-user" id="campaign-grid">
+
+                    <div id="campaign-list" class="campaign-list"></div>
+                
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">DonasiYuk</div>
+            <div class="footer-links">
+                <p>Fitur</p>
+                <ul>
+                    <li><a href="#">Donasi</a></li>
+                    <li><a href="#">Transparansi</a></li>
+                    <li><a href="#">Relawan</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Perusahaan</p>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Legal</p>
+                <ul>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DonasiYuk. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-modal-content">
+            <div class="modal-header-notif">
+                <h2>Notifikasi Terbaru</h2>
+                <span class="close-notif-btn">&times;</span> 
+            </div>
+            <div id="notification-list">
+                <p style="text-align: center; color: var(--color-grey-dark); padding: 20px;">Memuat notifikasi...</p>
+            </div>
+            <a href="#" class="view-all-notif">Lihat Semua</a>
+        </div>
+    </div>
+    <script src="../global/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

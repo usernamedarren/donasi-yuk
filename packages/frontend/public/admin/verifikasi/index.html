@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Kampanye | Admin DonasiYuk</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="../dashboard/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar"> 
+        <div class="logo">DonasiYuk</div>
+        
+        <ul class="admin-nav-links">
+            <li><a href="../dashboard/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#" class="active"><i class="fas fa-check-double"></i> Verifikasi</a></li> 
+            <li><a href="../user/index.html"><i class="fas fa-users"></i> User</a></li>
+            <li><a href="../laporan/index.html"><i class="fas fa-chart-line"></i> Laporan</a></li>
+        </ul>
+        
+        <div class="admin-profile-widget">
+            <a href="#" class="admin-profile-link" onclick="return false;"> 
+                <i class="fas fa-user-shield admin-profile-icon"></i>
+                <div class="admin-details">
+                    <span class="username" id="admin-name">ADMIN NAME</span>
+                    <span class="role">Administrator</span> 
+                </div>
+            </a>
+            <button class="logout-btn" onclick="logoutAdmin()">
+                <i class="fas fa-sign-out-alt"></i> LOGOUT
+            </button>
+        </div>
+    </nav>
+    
+    <main class="verification-main">
+        <div class="verification-container">
+            
+            <div class="campaign-list-column">
+                <h2 class="list-header">Menunggu Peninjauan (<span id="campaign-count">0</span>)</h2>
+                <div id="campaign-list">
+                    <p style="text-align: center; color: var(--color-grey-dark); padding: 20px;">Memuat daftar kampanye...</p>
+                </div>
+            </div>
+            
+            <div class="campaign-detail-column">
+                <div id="campaign-detail-pane">
+                    <div class="detail-placeholder">
+                        <i class="fas fa-hand-pointer" style="font-size: 3em; margin-bottom: 10px;"></i>
+                        <h3>Pilih Kampanye dari Daftar</h3>
+                        <p>Klik salah satu kampanye di samping untuk melihat detail dan melakukan tindakan verifikasi.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // --- GLOBAL JS (Admin Info & Logout) ---
+        document.addEventListener('DOMContentLoaded', () => {
+             const adminId = localStorage.getItem('adminId') || 'Admin';
+             
+             // Cek dan tampilkan nama admin
+             const adminPart = adminId.split('@')[0];
+             const displayName = adminPart.charAt(0).toUpperCase() + adminPart.slice(1);
+             document.getElementById('admin-name').textContent = displayName;
+             
+             // Redirect jika tidak login
+             if (!localStorage.getItem('isAdminLoggedIn')) {
+                 alert('Anda harus login sebagai admin.');
+                 window.location.href = '../login/index.html'; 
+             }
+        });
+        
+        function logoutAdmin() {
+             if (confirm("Apakah Anda yakin ingin Logout?")) {
+                localStorage.removeItem('isAdminLoggedIn');
+                localStorage.removeItem('adminId');
+                window.location.href = '../login/index.html'; 
+             }
+        }
+    </script>
+</body>
+</html>

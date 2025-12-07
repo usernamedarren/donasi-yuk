@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Onboarding | DonasiYuk</title>
+    <link rel="stylesheet" href="../login/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1 class="main-heading">Admin Register</h1>
+            <p class="instruction-text" style="margin-bottom: 25px;">Masukkan kode verifikasi khusus untuk mendaftar sebagai Admin.</p>
+
+            <form class="register-form">
+                <div class="input-group">
+                    <i class="fas fa-key icon"></i>
+                    <input type="text" id="admin-key" placeholder="Kode Verifikasi Admin" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user-shield icon"></i>
+                    <input type="text" id="username" placeholder="Nama Lengkap/Display Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope icon"></i>
+                    <input type="email" id="email" placeholder="Email Admin" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock icon"></i>
+                    <input type="password" id="password" placeholder="Password (Min 8 Karakter)" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock icon"></i>
+                    <input type="password" id="confirm-password" placeholder="Konfirmasi Password" required>
+                </div>
+                
+                <button type="submit" class="btn-primary" style="margin-top: 20px;">DAFTAR SEBAGAI ADMIN</button> 
+            </form>
+            
+            <p class="login-link">Sudah punya akun? <a href="../login/index.html">Login Admin</a></p>
+        </div>
+
+        <div class="illustration-section">
+            <img src="../register/admin-register-illustration.png" alt="Admin onboarding illustration" class="illustration-image">
+            <p class="illustration-text">Akses Terkelola.</p>
+            <p class="illustration-subtext">Hanya untuk staf yang terverifikasi.</p>
+            <div class="dot-indicators"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonasiYuk | Profil Saya</title>
+    <link rel="stylesheet" href="../beranda/style.css"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar fixed-top"> 
+        <div class="logo">DonasiYuk</div>
+        
+        <ul class="nav-links">
+            <li><a href="../beranda/index.html">Beranda</a></li>
+            <li><a href="../donasi/index.html">Donasi</a></li> 
+            <li><a href="../kampanye/index.html">Kampanye</a></li>
+            <li><a href="../about-us/index.html">Tentang Kami</a></li>
+        </ul>
+        
+        <div class="user-profile-widget">
+            <i class="fas fa-bell icon-notification" id="notification-bell"></i>
+            <i class="fas fa-cog icon-settings"></i>
+            <a href="../profile/index.html" class="user-profile-link">
+                <i class="fas fa-user user-profile-icon"></i>
+                <div class="user-details">
+                <span class="username">Memuat...</span>
+                <span class="user-handle">@handle</span>
+                </div>
+            </a>
+            </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <main class="profile-main">
+        <div class="container-profile">
+            
+            <header class="profile-header-card">
+                <div class="profile-avatar-container">
+                    <i class="fas fa-user-circle profile-large-icon"></i>
+                    <h1 id="profile-name">Memuat Nama...</h1>
+                    <p id="profile-handle" class="text-secondary">@handle</p>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-donations">Rp 0</span>
+                        <span class="stat-label">Total Donasi</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="campaigns-supported">0</span>
+                        <span class="stat-label">Kampanye Didukung</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="badges-collected">0</span>
+                        <span class="stat-label">Badges Terkumpul</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="profile-content-grid">
+                
+                <section class="card profile-info-card">
+                    <h2><i class="fas fa-id-card"></i> Informasi Akun</h2>
+                    <div class="info-group">
+                        <label>Nama Lengkap:</label>
+                        <p id="info-name">Memuat...</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Email:</label>
+                        <p id="info-email">Memuat...</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Bergabung Sejak:</label>
+                        <p id="info-join-date">Memuat...</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Poin Saya:</label>
+                        <p id="info-points">0 poin</p>
+                    </div>
+                    <button class="btn-secondary edit-btn"><i class="fas fa-edit"></i> Edit Profil</button>
+                    <button class="btn-primary" id="logout-btn"><i class="fas fa-sign-out-alt"></i> LOGOUT</button>
+                </section>
+
+                <section class="card badge-reward-card">
+                    
+                    <h2><i class="fas fa-medal"></i> Badges Kebaikan</h2>
+                    <p class="section-desc">Kumpulkan <strong>badges</strong> dari donasi Anda. <strong>Badges</strong> dapat ditukarkan untuk mengikuti kegiatan <strong>volunteer</strong> eksklusif!</p>
+                    
+                    <div id="badge-list" class="badge-grid">
+                        <!-- diisi dari backend -->
+                    </div>
+
+                    <div class="volunteer-section">
+                        <h3>Tukar Badge & Volunteer</h3>
+                        <p id="volunteer-status" class="text-secondary">
+                            Anda memiliki <strong><span id="redeemable-badges">0</span></strong> Badge yang dapat ditukarkan.
+                        </p>
+                        <button class="btn-primary" id="open-redeem-modal" disabled>
+                            TUKAR BADGE & DAFTAR VOLUNTEER
+                        </button>
+                    </div>
+                </section>
+                
+                <section class="card donation-history-card">
+                    <h2><i class="fas fa-history"></i> Riwayat Donasi Terbaru</h2>
+                    <div id="history-header" class="history-item-row" style="font-weight: bold; border-bottom: 2px solid var(--color-grey-light);">
+                        <span class="history-campaign-title">Kampanye</span>
+                        <span class="history-date">Tanggal</span>
+                        <span class="history-amount">Nominal</span>
+                    </div>
+                    <div id="history-list">
+                        <!-- diisi dari backend -->
+                    </div>
+                    <a href="#" class="view-all-link">Lihat Semua Riwayat &raquo;</a>
+                </section>
+                <section class="card my-campaign-card">
+                    <h2><i class="fas fa-bullhorn"></i> Kampanye Saya</h2>
+                    <div id="my-campaign-list">
+                        <!-- diisi dari backend -->
+                    </div>
+                </section>
+                <section class="card volunteer-history-card">
+                    <h2><i class="fas fa-hands-helping"></i> Riwayat Pendaftaran Volunteer</h2>
+                    <div id="volunteer-history-list">
+                        <!-- diisi dari backend -->
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">DonasiYuk</div>
+            <div class="footer-links">
+                <p>Fitur</p>
+                <ul>
+                    <li><a href="#">Donasi</a></li>
+                    <li><a href="#">Transparansi</a></li>
+                    <li><a href="#">Relawan</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Perusahaan</p>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Legal</p>
+                <ul>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DonasiYuk. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <div id="redeemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Tukar Badge untuk Volunteer</h2>
+            <p class="modal-info">
+                Pilih kampanye volunteer yang Anda minati.
+                Anda saat ini memiliki <strong id="modal-badge-count">0</strong> Badge.
+            </p>
+            
+            <div id="volunteer-reward-list">
+                <!-- daftar reward volunteer -->
+            </div>
+            
+            <p class="modal-footer-info">
+                Setelah ditukar, tim kampanye akan menghubungi Anda untuk verifikasi dan detail kegiatan.
+            </p>
+        </div>
+    </div>
+    
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-modal-content">
+            <div class="modal-header-notif">
+                <h2>Notifikasi Terbaru</h2>
+                <span class="close-notif-btn">&times;</span> 
+            </div>
+            <div id="notification-list">
+                <p style="text-align: center; color: var(--color-grey-dark); padding: 20px;">
+                    Memuat notifikasi...
+                </p>
+            </div>
+            <a href="#" class="view-all-notif">Lihat Semua</a>
+        </div>
+    </div>
+    
+    <!-- tambahkan ini supaya bisa pakai API_BASE_URL, token, dll -->
+    <script src="../global/api.js"></script>
+    <!-- script khusus halaman profil -->
+    <script src="script.js"></script>
+</body>
+</html>

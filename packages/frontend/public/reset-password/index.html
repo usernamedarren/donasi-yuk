@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter your new password</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1 class="main-heading">Enter your new password</h1>
+            <p class="instruction-text">This is the last step in recovering your password.</p>
+
+            <form class="reset-form">
+                <div class="input-group">
+                    <i class="fas fa-lock icon"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock icon"></i>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">SUBMIT</button>
+            </form>
+            
+        </div>
+
+        <div class="illustration-section">
+            <img src="reset-illustration.png" alt="Reset password illustration" class="illustration-image">
+
+            <p class="illustration-text">This is the end!</p>
+            <p class="illustration-subtext">After entering the new password you will gain access to your account.</p>
+            <div class="dot-indicators"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

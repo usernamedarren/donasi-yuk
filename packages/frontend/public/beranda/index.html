@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonasiYuk | Beri Harapan, Tebar Kebaikan.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="hero-section">
+        <nav class="navbar">
+            <div class="logo">DonasiYuk</div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active">Beranda</a></li>
+                <li><a href="../donasi/index.html">Donasi</a></li> 
+                <li><a href="../kampanye/index.html">Kampanye</a></li>
+                <li><a href="../about-us/index.html">Tentang Kami</a></li>
+            </ul>
+            
+            <div class="user-profile-widget">
+            <i class="fas fa-bell icon-notification" id="notification-bell"></i>
+            <i class="fas fa-cog icon-settings"></i>
+            <a href="../profile/index.html" class="user-profile-link">
+                <i class="fas fa-user user-profile-icon"></i>
+                <div class="user-details">
+                <span class="username">Memuat...</span>
+                <span class="user-handle">@handle</span>
+                </div>
+            </a>
+        </div>
+
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Beri Harapan, <br> Tebar Kebaikan.</h1>
+            <p class="hero-subtext">Bersama, kita ciptakan perubahan nyata. DonasiYuk adalah platform yang menghubungkan niat baik Anda dengan aksi kemanusiaan yang transparan dan terukur.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="hero-terkumpul">Rp 0</span>
+                    <span class="stat-label">Terkumpul</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="hero-donatur">0</span>
+                    <span class="stat-label">Donatur</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="hero-kampanye">0</span>
+                    <span class="stat-label">Kampanye</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="value-section-new">
+            <div class="value-image-container">
+                <img src="../assets/kasih.jpg" alt="Relawan sedang beraksi di lapangan" class="value-image">
+            </div>
+
+            <div class="value-text-container">
+                <h2>Mengubah Niat Baik <br> Jadi Aksi Nyata yang <br> Cerdas & Transparan.</h2>
+                <p>Bersih, transparan, dan akuntabel. DonasiYuk hadir untuk menghubungkan donasi Anda dengan aksi kemanusiaan yang tepat sasaran. Semua dana tercatat rapi, dan laporan penggunaan disajikan secara real-time oleh tim admin dan tim relawan, sehingga Anda bisa memantau penggunaan dana donasi secara menyeluruh, cepat, dan transparan, tanpa keraguan.</p>
+                
+                <div class="value-features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-hand-holding-heart icon-green"></i>
+                        <p>Mulai Galang Dana Dengan Mudah</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-certificate icon-green"></i>
+                        <p>Jelajahi Kampanye Tervirifikasi</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-invoice icon-green"></i>
+                        <p>Pantau Progres dan Laporan Real-Time</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-credit-card icon-green"></i>
+                        <p>Donasi Cepat Via Payment Gateway</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="campaign-section">
+            <div class="campaign-header-row">
+                <h2>Kampanye Terbaru</h2>
+                <a href="../donasi/index.html" class="btn-tampilkan-semua">
+                Tampilkan Semua »
+                </a>
+            </div>
+
+            <div class="campaign-slider-wrapper">
+                <!-- INI yang akan diisi JS -->
+                <div id="home-campaign-grid" class="campaign-grid"></div>
+            </div>
+        </section>
+
+        
+        <section class="location-section">
+            <h2>Kampanye Berdasarkan Lokasi</h2>
+            <p class="subtitle">Sebarkan kebaikan ke seluruh penjuru dunia.</p>
+            <div class="map-placeholder" id="campaign-map-container">
+                <div class="map-simulation"></div>
+                <div class="map-marker marker-jakarta" data-region="DKI Jakarta" data-count="3" style="top: 75%; left: 33%;"></div>
+                <div class="map-marker marker-sumatra" data-region="Sumatera Utara" data-count="5" style="top: 30%; left: 12%;"></div>
+                <div class="map-marker marker-kalimantan" data-region="Kalimantan Timur" data-count="2" style="top: 45%; left: 45%;"></div>
+                
+                <div class="marker-info-popup" id="map-info-popup"></div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stat-item">
+                <span class="number">100+</span>
+                <span class="label">Kampanye Selesai</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">500+</span>
+                <span class="label">Donatur Bergabung</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">400+</span>
+                <span class="label">Relawan Terlibat</span>
+            </div>
+            <div class="stat-item">
+                <span class="number">1.6M</span>
+                <span class="label">Total Donasi (Rp)</span>
+            </div>
+        </section>
+
+        <section class="quote-news-section">
+            <div class="quote-section">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <div class="quote-content">
+                    <p class="quote-text">Bersama Kita <br> Ciptakan Perubahan <br> yang Lebih Baik</p>
+                    <button class="btn-secondary">Lebih Lanjut</button>
+                </div>
+            </div>
+            
+            <div class="news-section">
+                <h2>Berita & Kisah Inspiratif Terbaru</h2>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <img src="../assets/news-1.png" alt="Distribusi Logistik untuk Korban" class="news-image">
+                        <div class="news-info">
+                            <h3>Distribusi Logistik <br> untuk Korban...</h3>
+                            <p class="date">2 hari lalu</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                         <img src="../assets/news-2.png" alt="Bantuan Pendidikan Capai Target" class="news-image">
+                        <div class="news-info">
+                            <h3>Bantuan Pendidikan <br> Capai Target...</h3>
+                            <p class="date">5 hari lalu</p>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="../assets/news-3.png" alt="Kisah Relawan di Pedalaman" class="news-image">
+                        <div class="news-info">
+                            <h3>Kisah Relawan <br> di Pedalaman...</h3>
+                            <p class="date">1 minggu lalu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">DonasiYuk</div>
+            <div class="footer-links">
+                <p>Fitur</p>
+                <ul>
+                    <li><a href="#">Donasi</a></li>
+                    <li><a href="#">Transparansi</a></li>
+                    <li><a href="#">Relawan</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Perusahaan</p>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Legal</p>
+                <ul>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DonasiYuk. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-modal-content">
+            <div class="modal-header-notif">
+                <h2>Notifikasi Terbaru</h2>
+                <span class="close-notif-btn">&times;</span> 
+            </div>
+            <div id="notification-list">
+                <p style="text-align: center; color: var(--color-grey-dark); padding: 20px;">Memuat notifikasi...</p>
+            </div>
+            <a href="#" class="view-all-notif">Lihat Semua</a>
+        </div>
+    </div>
+    
+    <script src="../global/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter OTP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1 class="main-heading">Enter OTP</h1>
+            <p class="instruction-text">Sent OTP on <span id="target-email">loading...</span></p>
+
+            <form class="otp-form">
+                <div class="otp-input-container">
+                    <input type="text" maxlength="1" class="otp-input" data-index="0" required>
+                    <input type="text" maxlength="1" class="otp-input" data-index="1" required>
+                    <input type="text" maxlength="1" class="otp-input" data-index="2" required>
+                    <input type="text" maxlength="1" class="otp-input" data-index="3" required>
+                    <input type="text" maxlength="1" class="otp-input" data-index="4" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">SUBMIT</button>
+            </form>
+            
+            <a href="#" class="resend-otp-link">Resent OTP</a>
+        </div>
+
+        <div class="illustration-section">
+            <img src="otp-illustration.png" alt="OTP verification illustration" class="illustration-image">
+            
+            <p class="illustration-text">It's just OTP verification</p>
+            <p class="illustration-subtext">You are one step away from recovering your password.</p>
+            <div class="dot-indicators"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

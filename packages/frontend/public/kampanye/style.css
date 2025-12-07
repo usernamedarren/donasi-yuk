@@ -1,0 +1,381 @@
+:root {
+    --color-primary: #347C8B; 
+    --color-secondary: #57b7a2; 
+    --color-dark: #333;
+    --color-light: #fff;
+    --color-grey-light: #f5f5f5;
+    --color-grey-dark: #666;
+    --color-navbar-bg: #478492;
+   
+    --color-breakdown-1: #ffc107;
+    --color-breakdown-2: #00bcd4;
+    --color-breakdown-3: #e91e63;
+    --color-breakdown-4: #4CAF50;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.campaign-dashboard-main {
+    padding-top: 100px; 
+    background-color: var(--color-grey-light); 
+    min-height: 100vh;
+}
+
+.container-dashboard {
+    max-width: 1300px; 
+    margin: 0 auto;
+    padding: 30px;
+}
+
+
+.header .title {
+    font-size: 2.5em; 
+    font-weight: bold;
+    color: var(--color-primary); 
+    margin-bottom: 30px;
+}
+
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white; 
+  padding: 20px;
+  border-radius: 10px; 
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06); 
+}
+
+.dropdown label {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-grey-dark);
+  margin-right: 5px;
+}
+
+.dropdown select {
+  padding: 8px 14px;
+  border-radius: 5px;
+  border: 1px solid #cdd5df;
+  background: #fff;
+  font-size: 14px;
+}
+
+.year-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.year-btn {
+  padding: 8px 14px;
+  background: var(--color-grey-light); 
+  border-radius: 5px; 
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  color: var(--color-dark);
+}
+
+.year-btn.active {
+  background: var(--color-primary); 
+  color: white;
+}
+
+.add-year {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid var(--color-primary); 
+  background: white;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-weight: bold;
+  transition: .2s;
+}
+
+.add-year:hover {
+  background: var(--color-grey-light);
+}
+
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1.3fr 1fr; 
+  gap: 25px;
+  margin-bottom: 40px; 
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  min-height: 450px;
+  padding: 15px;
+}
+
+.total-donasi-card {
+  grid-column: 2 / 3; 
+  grid-row: 1 / 2;
+}
+
+.total-kampanye-card {
+  grid-column: 3 / 4; 
+  grid-row: 1 / 2;
+}
+
+.kategori-card {
+  grid-column: 2 / 4; 
+  grid-row: 2 / 3;
+}
+
+.total-donasi-card h3,
+.total-kampanye-card h3,
+.kategori-card h3 {
+  color: var(--color-grey-dark); 
+  font-size: 14px; 
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.total-donasi-card p,
+.total-kampanye-card p {
+  font-size: 2.5em; 
+  font-weight: bold;
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+.trend {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+.kategori-card h3 {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+.kategori-card ul {
+  margin-top: 10px;
+  list-style: none;
+}
+
+.kategori-card ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-grey-light);
+  font-size: 14px;
+  color: var(--color-dark);
+  position: relative;
+  padding-left: 15px;
+}
+
+.kategori-card ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--dot-color, var(--color-primary)); 
+}
+
+.kategori-card ul li:last-child {
+  border-bottom: none;
+}
+
+
+
+.campaign-list-section .campaign-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.campaign-list-section h2 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.status-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border-color: var(--color-primary);
+}
+
+.campaign-grid-user {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* Card wrapper */
+.campaign-card-user {
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.card-content-user {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Baris status di atas judul */
+.campaign-status-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Kotak status RECTANGLE (bukan bulat) */
+.campaign-status-box {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 8px;          /* rectangle lembut */
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+/* Warna per status */
+.status-pill--pending {
+  background-color: #fff7e0;
+  color: #b27000;
+  border-color: #f5d48b;
+}
+
+.status-pill--active {
+  background-color: #e6f7f0;
+  color: #166b52;
+  border-color: #92d9bb;
+}
+
+.status-pill--completed {
+  background-color: #eef2ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
+}
+
+.status-pill--rejected {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.status-pill--default {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
+
+/* Judul & deskripsi */
+.campaign-title-user {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.description-user {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Progress bar */
+.progress-bar-user {
+  position: relative;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-user span {
+  display: block;
+  height: 100%;
+  background-color: #117a8b;
+}
+
+/* Info angka progress */
+.progress-info-user {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+/* Baris bawah: tanggal + tombol */
+.campaign-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  gap: 10px;
+}
+
+.campaign-date {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Tombol lihat */
+.btn-outline {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid #117a8b;
+  background-color: #ffffff;
+  color: #117a8b;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-outline:hover {
+  background-color: #117a8b;
+  color: #ffffff;
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonasiYuk | Detail Donasi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../beranda/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar fixed-top"> 
+        <div class="logo">DonasiYuk</div>
+        
+        <ul class="nav-links">
+            <li><a href="../beranda/index.html">Beranda</a></li>
+            <li><a href="../donasi/index.html">Donasi</a></li> 
+            <li><a href="#" class="active">Kampanye</a></li>
+            <li><a href="../about-us/index.html">Tentang Kami</a></li>
+        </ul>
+        
+        <div class="user-profile-widget">
+        <i class="fas fa-bell icon-notification" id="notification-bell"></i>
+        <i class="fas fa-cog icon-settings"></i>
+        <a href="../profile/index.html" class="user-profile-link">
+            <i class="fas fa-user user-profile-icon"></i>
+            <div class="user-details">
+            <span class="username">Memuat...</span>
+            <span class="user-handle">@handle</span>
+            </div>
+        </a>
+        </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <main class="detail-main">
+        <div class="content-wrapper">
+            
+            <div class="left-column">
+                
+                <section class="campaign-header-detail">
+                    <h1 id="campaign-title">Memuat Judul Kampanye...</h1>
+                    
+                    <div class="campaign-meta">
+                         <p>Terkumpul: <strong id="current-fund">Rp 0</strong></p>
+                         <p>Target: <strong id="goal-fund">Rp 0</strong></p>
+                         <p>Sisa Hari: <strong id="days-left">0 Hari</strong></p>
+                    </div>
+                    
+                    <img src="" alt="Gambar Kampanye" class="campaign-main-image">
+                    
+                    <div class="campaign-progress">
+                        <div class="progress-bar-v2">
+                            <span id="progress-indicator" style="width: 0%;"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="donation-form-section">
+                    <h2>Masukkan Nominal Donasi</h2>
+                    <form id="donation-form">
+                        
+                        <div class="nominal-options">
+                            <button type="button" class="btn-nominal" data-amount="50000">Rp 50rb</button>
+                            <button type="button" class="btn-nominal" data-amount="100000">Rp 100rb</button>
+                            <button type="button" class="btn-nominal" data-amount="250000">Rp 250rb</button>
+                            <button type="button" class="btn-nominal" data-amount="500000">Rp 500rb</button>
+                            <button type="button" class="btn-nominal" data-amount="1000000">Rp 1 Juta</button>
+                            <button type="button" class="btn-nominal" data-amount="2000000">Rp 2 Juta</button>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="input-nominal">Atau masukkan nominal lain (Min. Rp 10.000)</label>
+                            <input type="number" id="input-nominal" placeholder="Contoh: 150000" min="10000" required>
+                        </div>
+
+                        <h2 style="margin-top: 30px;">Pilih Metode Pembayaran</h2>
+                        <div class="payment-method-options">
+                            <label class="radio-label payment-option-card">
+                                <input type="radio" name="payment-method" value="credit-card" checked> Kartu Kredit/Debit
+                            </label>
+                            <label class="radio-label payment-option-va">
+                                <input type="radio" name="payment-method" value="bank-transfer"> Transfer Bank (VA)
+                            </label>
+                            <label class="radio-label payment-option-e-wallet">
+                                <input type="radio" name="payment-method" value="e-wallet"> E-Wallet (Gopay/OVO)
+                            </label>
+                        </div>
+                        
+                        <div id="payment-details-container" class="payment-details-container" style="display: none;">
+                             </div>
+
+                        <h2 style="margin-top: 30px;">Informasi Pribadi</h2>
+                        <div class="personal-info-grid">
+                            <input type="text" id="first-name" placeholder="Nama Depan" required>
+                            <input type="text" id="last-name" placeholder="Nama Belakang" required>
+                            <input type="email" id="email-donatur" placeholder="Email" required>
+                            <input type="tel" id="phone-number" placeholder="Nomor Telepon (Opsional)">
+                        </div>
+                        
+                        <div class="donation-summary">
+                            <p>Donasi Total: <strong id="total-donasi">Rp 0</strong></p>
+                            <button type="submit" class="btn-primary" id="btn-lanjut-donasi">BAYAR SEKARANG</button>
+                        </div>
+                    </form>
+                </section>
+                
+                <section class="campaign-description" id="campaign-full-description">
+                    </section>
+
+            </div>
+
+            <div class="right-column">
+                
+                <section class="newsletter-signup">
+                    <h2>Berlangganan</h2>
+                    <p>Dapatkan kisah inspiratif terbaru langsung ke email Anda.</p>
+                    <input type="email" placeholder="Email Anda">
+                    <button class="btn-primary">KIRIM</button>
+                </section>
+                
+                <section class="urgent-campaigns">
+                    <h2>Kampanye Mendesak</h2>
+                    <div class="urgent-card">
+                        <img src="../assets/kelaparan.png" alt="Akhiri Kelaparan">
+                        <div class="urgent-info">
+                            <h4>Akhiri Kelaparan</h4>
+                            <p>Tersisa 6 hari lagi untuk mencapai target!</p>
+                            <a href="#">Donasi &raquo;</a>
+                        </div>
+                    </div>
+                    <div class="urgent-card">
+                        <img src="../assets/pendidikan.png" alt="Tingkatkan Pendidikan">
+                        <div class="urgent-info">
+                            <h4>Tingkatkan Pendidikan</h4>
+                            <p>Donasi untuk 1000 beasiswa sekolah dasar.</p>
+                            <a href="#">Donasi &raquo;</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">DonasiYuk</div>
+            <div class="footer-links">
+                <p>Fitur</p>
+                <ul>
+                    <li><a href="#">Donasi</a></li>
+                    <li><a href="#">Transparansi</a></li>
+                    <li><a href="#">Relawan</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Perusahaan</p>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Legal</p>
+                <ul>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DonasiYuk. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-modal-content">
+            <div class="modal-header-notif">
+                <h2>Notifikasi Terbaru</h2>
+                <span class="close-notif-btn">&times;</span> 
+            </div>
+            <div id="notification-list">
+                <p style="text-align: center; color: var(--color-grey-dark); padding: 20px;">Memuat notifikasi...</p>
+            </div>
+            <a href="#" class="view-all-notif">Lihat Semua</a>
+        </div>
+    </div>
+    
+    <script src="../global/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 
@@ -9,10 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from frontend (production)
-app.use(express.static(path.join(__dirname, '../../frontend')));
-
-// health check - no database needed
+// health check
 app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'API is healthy', status: 'ok', timestamp: new Date() });
 });
@@ -20,13 +16,6 @@ app.get('/api/health', (req, res) => {
 // Check if DATABASE_URL is set
 if (!process.env.DATABASE_URL) {
   console.warn('⚠️ DATABASE_URL not set - database routes will fail');
-  app.get('/api/config', (req, res) => {
-    res.status(200).json({ 
-      message: 'Server running but DATABASE_URL not configured',
-      status: 'ok',
-      requiresConfiguration: true
-    });
-  });
 } else {
   // Only load routes if DATABASE_URL is set
   const authRoutes = require('./routes/auth');
@@ -48,11 +37,6 @@ if (!process.env.DATABASE_URL) {
   app.use('/users', userRoutes);
   app.use('/admin-dashboard', adminRoutes);
 }
-
-// Serve frontend for all other routes (SPA fallback)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/beranda/index.html'));
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

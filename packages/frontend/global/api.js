@@ -1,5 +1,5 @@
 // global/api.js
-const API_BASE_URL = '';
+const API_BASE_URL = 'https://donasiyuk.vercel.app';
 
 const STORAGE_KEYS = {
   TOKEN: 'auth_token',   // PILIH SATU NAMA KUNCI KONSISTEN

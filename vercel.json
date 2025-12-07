@@ -8,35 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/auth(.*)",
-      "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/campaigns(.*)",
-      "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/donations(.*)",
-      "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/rewards(.*)",
-      "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/missions(.*)",
-      "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/users(.*)",
-      "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/admin(.*)",
+      "src": "/(.*)",
       "dest": "packages/backend/src/server.js"
     }
   ]

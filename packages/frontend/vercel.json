@@ -1,11 +1,5 @@
 {
-  "buildCommand": "echo 'Static site'",
+  "buildCommand": "echo 'Static frontend'",
   "outputDirectory": "public",
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "cleanUrls": true
 }

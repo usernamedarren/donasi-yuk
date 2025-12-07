@@ -71,81 +71,77 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function loadDashboard() {
-    if (!urgentListEl) return;
+  if (!urgentListEl) return;
 
-    urgentListEl.innerHTML = '<p>Memuat data dashboard...</p>';
+  urgentListEl.innerHTML = '<p>Memuat data dashboard...</p>';
 
-    try {
-      // 1. Pending campaigns
-      const pendingRes = await fetch(`${API_BASE_URL}/admin/campaigns/pending`, {
-        headers: getHeaders(),
-      });
-      const pendingData = await pendingRes.json();
+  try {
+    // 1. Pending campaigns
+  const pendingRes = await fetch(`${API_BASE_URL}/admin-dashboard/campaigns/pending`, {
+      headers: getHeaders(),
+    });
+    const pendingData = await pendingRes.json();
 
-      pendingEl.textContent = Array.isArray(pendingData)
-        ? pendingData.length
-        : 0;
+    pendingEl.textContent = Array.isArray(pendingData)
+      ? pendingData.length
+      : 0;
 
-      // 2. Semua campaign
-      const allCampaignRes = await fetch(`${API_BASE_URL}/campaigns`, {
-        headers: getHeaders(),
-      });
-      const allCampaigns = await allCampaignRes.json();
+    // 2. Semua campaign
+    const allCampaignRes = await fetch(`${API_BASE_URL}/campaigns`, {
+      headers: getHeaders(),
+    });
+    const allCampaigns = await allCampaignRes.json();
 
-      const activeCampaigns = Array.isArray(allCampaigns)
-        ? allCampaigns.filter((c) => c.status === 'PUBLISHED')
-        : [];
+    const activeCampaigns = Array.isArray(allCampaigns)
+      ? allCampaigns.filter((c) => c.status === 'PUBLISHED')
+      : [];
 
-      activeEl.textContent = activeCampaigns.length;
+    activeEl.textContent = activeCampaigns.length;
 
-      // 3. Semua user
-      const userRes = await fetch(`${API_BASE_URL}/users`, {
-        headers: getHeaders(),
-      });
-      const users = await userRes.json();
-      usersEl.textContent = Array.isArray(users) ? users.length : 0;
+    // 3. Semua user (sementara dummy)
+    usersEl.textContent = 0;
 
-      // 4. Donasi hari ini (sementara dummy 0)
-      donationsTodayEl.textContent = formatRupiah(0);
+    // 4. Donasi hari ini (sementara dummy)
+    donationsTodayEl.textContent = formatRupiah(0);
 
-      // 5. Tampilkan list pending
-      if (!pendingData.length) {
-        urgentListEl.innerHTML =
-          '<p style="color:var(--color-secondary);">Tidak ada kampanye yang menunggu verifikasi 🎉</p>';
-        return;
-      }
-
-      urgentListEl.innerHTML = pendingData
-        .map(
-          (t) => `
-          <div class="campaign-item">
-            <div class="campaign-info">
-              <p>${t.title} (Oleh: ${t.owner?.name || 'Penggalang Dana'})</p>
-              <span>
-                Diajukan pada: ${new Date(t.createdAt).toLocaleString(
-                  'id-ID'
-                )} | Kategori: ${t.category || '-'}
-              </span>
-            </div>
-            <button class="btn-verify" data-id="${t.id}">
-              TINJAU
-            </button>
-          </div>
-        `
-        )
-        .join('');
-
-      urgentListEl.addEventListener('click', (e) => {
-        const btn = e.target.closest('.btn-verify');
-        if (!btn) return;
-        window.location.href = '../verifikasi/index.html';
-      });
-    } catch (err) {
-      console.error('loadDashboard error:', err);
+    // 5. Tampilkan list pending
+    if (!pendingData.length) {
       urgentListEl.innerHTML =
-        '<p>Terjadi error saat memuat data dashboard.</p>';
+        '<p style="color:var(--color-secondary);">Tidak ada kampanye yang menunggu verifikasi 🎉</p>';
+      return;
     }
+
+    urgentListEl.innerHTML = pendingData
+      .map(
+        (t) => `
+        <div class="campaign-item">
+          <div class="campaign-info">
+            <p>${t.title} (Oleh: ${t.owner?.name || 'Penggalang Dana'})</p>
+            <span>
+              Diajukan pada: ${new Date(t.createdAt).toLocaleString(
+                'id-ID'
+              )} | Kategori: ${t.category || '-'}
+            </span>
+          </div>
+          <button class="btn-verify" data-id="${t.id}">
+            TINJAU
+          </button>
+        </div>
+      `
+      )
+      .join('');
+
+    urgentListEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.btn-verify');
+      if (!btn) return;
+      window.location.href = '../verifikasi/index.html';
+    });
+  } catch (err) {
+    console.error('loadDashboard error:', err);
+    urgentListEl.innerHTML =
+      '<p>Terjadi error saat memuat data dashboard.</p>';
   }
+}
 
 
   (async () => {

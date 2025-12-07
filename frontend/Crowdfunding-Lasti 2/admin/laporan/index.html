@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan & Analisis | Admin DonasiYuk</title>
+    <link rel="stylesheet" href="../dashboard/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Khusus untuk Laporan */
+        .report-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .report-card {
+            background: var(--color-light);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        .report-card h3 {
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-grey-light);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .report-card h3 i {
+            margin-right: 10px;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--color-grey-light);
+            font-size: 1.1em;
+        }
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        .summary-item strong {
+            color: var(--color-secondary);
+        }
+        .breakdown-list li {
+            list-style: none;
+            padding: 8px 0;
+            border-bottom: 1px dotted var(--color-grey-light);
+            display: flex;
+            justify-content: space-between;
+        }
+        .breakdown-list li:last-child {
+            border-bottom: none;
+        }
+        .breakdown-list strong {
+            color: var(--color-dark);
+        }
+        @media (max-width: 1024px) {
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar"> 
+        <div class="logo">DonasiYuk</div>
+        
+        <ul class="admin-nav-links">
+            <li><a href="../dashboard/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="../verifikasi/index.html"><i class="fas fa-check-double"></i> Verifikasi</a></li> 
+            <li><a href="../user/index.html"><i class="fas fa-users"></i> User</a></li>
+            <li><a href="#" class="active"><i class="fas fa-chart-line"></i> Laporan</a></li>
+        </ul>
+        
+        <div class="admin-profile-widget">
+            <a href="#" class="admin-profile-link" onclick="return false;"> 
+                <i class="fas fa-user-shield admin-profile-icon"></i>
+                <div class="admin-details">
+                    <span class="username" id="admin-name">ADMIN NAME</span>
+                    <span class="role">Administrator</span> 
+                </div>
+            </a>
+            <button class="logout-btn" onclick="logoutAdmin()">
+                <i class="fas fa-sign-out-alt"></i> LOGOUT
+            </button>
+        </div>
+    </nav>
+    
+    <main class="admin-dashboard-main">
+        <div class="dashboard-container">
+            <header class="main-header">
+                <h1><i class="fas fa-chart-line"></i> Laporan & Analisis Keuangan</h1>
+            </header>
+            
+            <section class="report-grid">
+                
+                <div>
+                    <div class="report-card">
+                        <h3><i class="fas fa-money-check-alt"></i> Ringkasan Keuangan Tahunan (2025)</h3>
+                        <div id="financial-summary">
+                            </div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <h3><i class="fas fa-chart-bar"></i> Distribusi Donasi (Simulasi Grafik)</h3>
+                        <p style="padding: 30px; text-align: center; color: var(--color-grey-dark);">[Placeholder Grafik Batang/Pie Chart Data Donasi Bulanan]</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="report-card">
+                        <h3>Total Dana Berdasarkan Kategori</h3>
+                        <ul id="category-breakdown" class="breakdown-list">
+                            </ul>
+                    </div>
+                    <div class="report-card">
+                        <h3>Laporan Status Kampanye</h3>
+                        <div id="campaign-report">
+                            </div>
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // --- GLOBAL JS (Admin Info & Logout) ---
+        document.addEventListener('DOMContentLoaded', () => {
+             const adminId = localStorage.getItem('adminId') || 'Admin';
+             const adminPart = adminId.split('@')[0];
+             const displayName = adminPart.charAt(0).toUpperCase() + adminPart.slice(1);
+             document.getElementById('admin-name').textContent = displayName;
+             
+             if (!localStorage.getItem('isAdminLoggedIn')) {
+                 window.location.href = '../../login/index.html'; 
+             }
+        });
+        
+        function logoutAdmin() {
+             if (confirm("Apakah Anda yakin ingin Logout?")) {
+                localStorage.removeItem('isAdminLoggedIn');
+                localStorage.removeItem('adminId');
+                window.location.href = '../../login/index.html'; 
+             }
+        }
+    </script>
+</body>
+</html>

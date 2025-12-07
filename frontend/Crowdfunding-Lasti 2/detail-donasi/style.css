@@ -1,0 +1,335 @@
+:root {
+    --color-primary: #347C8B; 
+    --color-secondary: #57b7a2; 
+    --color-dark: #333;
+    --color-light: #fff;
+    --color-grey-light: #f5f5f5;
+    --color-grey-dark: #666;
+}
+
+
+
+.detail-main {
+    padding: 100px 5% 40px 5%;
+    background-color: #f7f9fb;
+}
+
+
+.content-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.left-column {
+    flex: 3; 
+}
+
+.right-column {
+    flex: 1; 
+}
+
+
+.campaign-header-detail {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+#campaign-title {
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+
+.campaign-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    color: var(--color-grey-dark);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-grey-light);
+}
+.campaign-meta strong {
+    color: var(--color-dark);
+    font-weight: bold;
+}
+
+.campaign-main-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.campaign-progress {
+    padding-top: 15px;
+    border-top: 1px solid var(--color-grey-light);
+}
+
+
+.progress-bar-v2 {
+    background-color: var(--color-grey-light);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar-v2 span {
+    display: block;
+    height: 100%;
+    background-color: var(--color-secondary);
+    transition: width 0.4s ease-in-out; 
+    border-radius: 5px;
+}
+
+
+
+.donation-form-section {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.donation-form-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+
+.nominal-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.btn-nominal {
+    padding: 10px 15px;
+    border: 1px solid var(--color-primary);
+    background: white;
+    color: var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-nominal:hover,
+.btn-nominal.selected {
+    background: var(--color-primary);
+    color: var(--color-light);
+}
+
+
+#input-nominal {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 1em;
+}
+
+
+.payment-method-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.radio-label {
+    background: var(--color-grey-light);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+}
+.radio-label input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--color-primary);
+}
+
+
+.payment-details-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px dashed var(--color-secondary);
+    border-radius: 5px;
+    background-color: #e6fff7;
+}
+.payment-details-container p {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+.payment-details-container strong {
+    color: var(--color-primary);
+}
+
+
+
+.personal-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.personal-info-grid input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+
+
+.donation-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+#total-donasi {
+    font-size: 1.5em;
+    color: var(--color-secondary);
+}
+
+#btn-lanjut-donasi {
+    padding: 15px 30px;
+}
+
+
+
+.campaign-description {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title-detail {
+    font-size: 1.6em;
+    color: var(--color-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.campaign-description p, 
+.campaign-description ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    color: var(--color-grey-dark);
+}
+.campaign-description ul {
+    list-style-type: disc;
+}
+.campaign-doc-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+
+
+
+
+.right-column section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.right-column h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+.newsletter-signup p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    color: var(--color-grey-dark);
+}
+.newsletter-signup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.newsletter-signup button {
+    width: 100%;
+    background-color: var(--color-secondary);
+}
+
+
+.urgent-card {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #eee;
+}
+.urgent-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.urgent-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.urgent-info h4 {
+    font-size: 1em;
+    margin: 0 0 5px 0;
+}
+.urgent-info p {
+    font-size: 0.8em;
+    margin: 0 0 5px 0;
+    color: var(--color-grey-dark);
+}
+.urgent-info a {
+    color: var(--color-secondary);
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 992px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .left-column, .right-column {
+        flex: auto;
+    }
+    .campaign-main-image {
+        height: 250px;
+    }
+    .personal-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .nominal-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

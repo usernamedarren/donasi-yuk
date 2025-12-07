@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonasiYuk | Semua Kampanye Donasi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../beranda/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header donation-header-bg">
+        <nav class="navbar">
+            <div class="logo">DonasiYuk</div>
+            
+            <ul class="nav-links">
+                <li><a href="../beranda/index.html">Beranda</a></li>
+                <li><a href="#" class="active">Donasi</a></li> 
+                <li><a href="../kampanye/index.html">Kampanye</a></li>
+                <li><a href="../about-us/index.html">Tentang Kami</a></li>
+            </ul>
+            
+            <div class="user-profile-widget">
+            <i class="fas fa-bell icon-notification" id="notification-bell"></i>
+            <i class="fas fa-cog icon-settings"></i>
+            <a href="../profile/index.html" class="user-profile-link">
+                <i class="fas fa-user user-profile-icon"></i>
+                <div class="user-details">
+                <span class="username">Memuat...</span>
+                <span class="user-handle">@handle</span>
+                </div>
+            </a>
+            </div>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </nav>
+
+        <div class="donation-header-content">
+            <h1>Donasi Sekarang, Tebarkan Harapan</h1>
+            <p class="header-subtext">Setiap aksi kebaikan, sekecil apapun, menciptakan perubahan nyata. Pilih kampanye yang paling menginspirasi Anda.</p>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="category-filter-section">
+            <div class="category-grid">
+                <div class="category-item active" data-category="all">
+                    <i class="fas fa-th-large"></i>
+                    <p>Semua Kampanye</p>
+                </div>
+                <div class="category-item" data-category="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>Pendidikan</p>
+                </div>
+                <div class="category-item" data-category="water">
+                    <i class="fas fa-tint"></i>
+                    <p>Air Bersih</p>
+                </div>
+                <div class="category-item" data-category="health">
+                    <i class="fas fa-heartbeat"></i>
+                    <p>Kesehatan</p>
+                </div>
+                <div class="category-item" data-category="community">
+                    <i class="fas fa-users"></i>
+                    <p>Komunitas Lokal</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="latest-campaigns-section">
+            <div class="section-header-row">
+                <h2>Kampanye Aktif</h2>
+                </div>
+            
+            <div class="search-bar-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="campaign-search" placeholder="Cari kampanye berdasarkan judul atau kategori..." class="search-input">
+            </div>
+
+            <div class="campaign-grid-full" id="campaign-grid-full">
+                </div>
+        </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">DonasiYuk</div>
+            <div class="footer-links">
+                <p>Fitur</p>
+                <ul>
+                    <li><a href="#">Donasi</a></li>
+                    <li><a href="#">Transparansi</a></li>
+                    <li><a href="#">Relawan</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Perusahaan</p>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karir</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <p>Legal</p>
+                <ul>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <p>Ikuti Kami</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DonasiYuk. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <div id="notificationModal" class="notification-modal">
+        <div class="notification-modal-content">
+            <div class="modal-header-notif">
+                <h2>Notifikasi Terbaru</h2>
+                <span class="close-notif-btn">&times;</span> 
+            </div>
+            <div id="notification-list">
+                <p style="text-align: center; color: var(--color-grey-dark); padding: 20px;">Memuat notifikasi...</p>
+            </div>
+            <a href="#" class="view-all-notif">Lihat Semua</a>
+        </div>
+    </div>
+    <script src="../global/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

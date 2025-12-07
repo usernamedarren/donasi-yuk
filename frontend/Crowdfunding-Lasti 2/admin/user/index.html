@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen User | Admin DonasiYuk</title>
+    <link rel="stylesheet" href="../dashboard/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Khusus untuk User Table */
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--color-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .user-table th, .user-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-grey-light);
+        }
+        .user-table th {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .user-table td {
+            color: var(--color-dark);
+            font-size: 0.95em;
+        }
+        .user-table tbody tr:hover { background-color: #f9f9f9; }
+        .status-active { color: var(--color-secondary); font-weight: bold; }
+        .status-suspended { color: var(--color-alert-danger); font-weight: bold; }
+        .btn-action-user {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: opacity 0.3s;
+        }
+        .btn-block { background-color: var(--color-alert-danger); color: white; }
+        .btn-unblock { background-color: var(--color-secondary); color: white; }
+        .task-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--color-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar"> 
+        <div class="logo">DonasiYuk</div>
+        
+        <ul class="admin-nav-links">
+            <li><a href="../dashboard/index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="../verifikasi/index.html"><i class="fas fa-check-double"></i> Verifikasi</a></li> 
+            <li><a href="#" class="active"><i class="fas fa-users"></i> User</a></li>
+            <li><a href="../laporan/index.html"><i class="fas fa-chart-line"></i> Laporan</a></li>
+        </ul>
+        
+        <div class="admin-profile-widget">
+            <a href="#" class="admin-profile-link" onclick="return false;"> 
+                <i class="fas fa-user-shield admin-profile-icon"></i>
+                <div class="admin-details">
+                    <span class="username" id="admin-name">ADMIN NAME</span>
+                    <span class="role">Administrator</span> 
+                </div>
+            </a>
+            <button class="logout-btn" onclick="logoutAdmin()">
+                <i class="fas fa-sign-out-alt"></i> LOGOUT
+            </button>
+        </div>
+    </nav>
+    
+    <main class="admin-dashboard-main">
+        <div class="dashboard-container">
+            <header class="main-header">
+                <h1><i class="fas fa-users"></i> Manajemen User</h1>
+            </header>
+            
+            <section class="task-section">
+                <h2>Daftar Pengguna Aktif (<span id="total-user-count">0</span>)</h2>
+                
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama Lengkap</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-table-body">
+                        </tbody>
+                </table>
+
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // --- GLOBAL JS (Admin Info & Logout) ---
+        document.addEventListener('DOMContentLoaded', () => {
+             const adminId = localStorage.getItem('adminId') || 'Admin';
+             const adminPart = adminId.split('@')[0];
+             const displayName = adminPart.charAt(0).toUpperCase() + adminPart.slice(1);
+             document.getElementById('admin-name').textContent = displayName;
+             
+             if (!localStorage.getItem('isAdminLoggedIn')) {
+                 window.location.href = '../../login/index.html'; 
+             }
+        });
+        
+        function logoutAdmin() {
+             if (confirm("Apakah Anda yakin ingin Logout?")) {
+                localStorage.removeItem('isAdminLoggedIn');
+                localStorage.removeItem('adminId');
+                window.location.href = '../../login/index.html'; 
+             }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int          @id @default(autoincrement())
+  name           String
+  email          String       @unique
+  passwordHash   String
+  role           String       @default("USER")
+  totalDonations Int          @default(0)
+  totalPoints    Int          @default(0)
+
+  campaigns      Campaign[]   @relation("UserCampaigns")
+  donations      Donation[]
+  userBadges     UserBadge[]
+
+  missionLogs        UserMissionLog[]
+  pointTransactions  PointTransaction[]
+  rewardRedemptions  RewardRedemption[]
+
+  createdAt      DateTime     @default(now())
+}
+
+model Campaign {
+  id              Int        @id @default(autoincrement())
+  title           String
+  description     String
+  goalAmount      Int
+  collectedAmount Int        @default(0)
+
+  // pakai String, bukan enum
+  status          String     @default("PENDING")
+
+  ownerId         Int
+  owner           User       @relation("UserCampaigns", fields: [ownerId], references: [id])
+  donations       Donation[]
+  createdAt       DateTime   @default(now())
+  approvedAt      DateTime?
+}
+
+model Donation {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  campaignId Int
+  amount     Int
+
+  // pakai String, bukan enum
+  status     String   @default("SUCCESS")
+
+  user       User     @relation(fields: [userId], references: [id])
+  campaign   Campaign @relation(fields: [campaignId], references: [id])
+  createdAt  DateTime @default(now())
+}
+
+model Badge {
+  id               Int        @id @default(autoincrement())
+  name             String
+  description      String
+  minTotalDonation Int
+  userBadges       UserBadge[]
+
+  rewards          Reward[]
+}
+
+model UserBadge {
+  id                   Int      @id @default(autoincrement())
+  userId               Int
+  badgeId              Int
+  user                 User     @relation(fields: [userId], references: [id])
+  badge                Badge    @relation(fields: [badgeId], references: [id])
+  earnedAt             DateTime @default(now())
+  redeemedAsVolunteer  Boolean  @default(false)
+
+  @@unique([userId, badgeId])
+}
+
+model Mission {
+  id          Int              @id @default(autoincrement())
+  code        String           @unique
+  name        String
+  description String
+  points      Int
+  type        String
+  maxPerDay   Int?
+  isActive    Boolean          @default(true)
+
+  logs        UserMissionLog[]
+}
+
+model UserMissionLog {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  missionId  Int
+  createdAt  DateTime  @default(now())
+
+  user       User      @relation(fields: [userId], references: [id])
+  mission    Mission   @relation(fields: [missionId], references: [id])
+}
+
+model PointTransaction {
+  id          Int       @id @default(autoincrement())
+  userId      Int
+  amount      Int
+  type        String
+  description String
+  createdAt   DateTime  @default(now())
+
+  user        User      @relation(fields: [userId], references: [id])
+}
+
+model Reward {
+  id          Int        @id @default(autoincrement())
+  name        String
+  description String
+  costPoints  Int
+  type        String
+  badgeId     Int?
+
+  badge       Badge?     @relation(fields: [badgeId], references: [id])
+  redemptions RewardRedemption[]
+  isActive    Boolean    @default(true)
+}
+
+model RewardRedemption {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  rewardId   Int
+  status     String    @default("SUCCESS")
+  createdAt  DateTime  @default(now())
+
+  user       User      @relation(fields: [userId], references: [id])
+  reward     Reward    @relation(fields: [rewardId], references: [id])
+}

@@ -1,0 +1,19 @@
+{
+  "name": "donasi-yuk",
+  "version": "1.0.0",
+  "description": "Donasi-Yuk: Crowdfunding Platform",
+  "private": true,
+  "workspaces": [
+    "packages/backend/donasiyuk-backend",
+    "packages/frontend/Crowdfunding-Lasti-2"
+  ],
+  "scripts": {
+    "dev:backend": "cd packages/backend/donasiyuk-backend && npm run dev",
+    "dev:frontend": "cd packages/frontend/Crowdfunding-Lasti-2 && npm run dev",
+    "build:backend": "cd packages/backend/donasiyuk-backend && npm run build",
+    "build:frontend": "cd packages/frontend/Crowdfunding-Lasti-2 && npm run build"
+  },
+  "keywords": ["crowdfunding", "donation", "platform"],
+  "author": "",
+  "license": "ISC"
+}

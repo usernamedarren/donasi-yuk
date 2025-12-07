@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "name": "donasi-yuk-backend",
+      "path": "packages/backend/donasiyuk-backend",
+      "builds": [
+        {
+          "src": "src/server.js",
+          "use": "@vercel/node"
+        }
+      ],
+      "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "src/server.js"
+        }
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "donasi-yuk-frontend",
+      "path": "packages/frontend/Crowdfunding-Lasti-2",
+      "public": true,
+      "rewrites": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

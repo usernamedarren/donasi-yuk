@@ -1,7 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd packages/backend && npm run build",
+  "buildCommand": "npm --prefix packages/backend run build",
   "outputDirectory": "packages/backend",
-  "framework": "nodejs",
-  "nodeVersion": "18.x"
+  "framework": "nodejs"
 }

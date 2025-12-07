@@ -19,6 +19,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// health check
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'API is running', status: 'ok' });
+});
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ message: 'API is healthy', status: 'ok' });
+});
+
 // routes utama
 app.use('/auth', authRoutes);
 app.use('/admin', adminCampaignRoutes);     // verifikasi kampanye admin

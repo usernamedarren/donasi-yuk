@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -8,11 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// health check - no database needed
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'API is running', status: 'ok', timestamp: new Date() });
-});
+// Serve static files from frontend (production)
+app.use(express.static(path.join(__dirname, '../../frontend')));
 
+// health check - no database needed
 app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'API is healthy', status: 'ok', timestamp: new Date() });
 });
@@ -48,6 +48,11 @@ if (!process.env.DATABASE_URL) {
   app.use('/users', userRoutes);
   app.use('/admin-dashboard', adminRoutes);
 }
+
+// Serve frontend for all other routes (SPA fallback)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/beranda/index.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

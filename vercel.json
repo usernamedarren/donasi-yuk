@@ -4,11 +4,6 @@
     {
       "src": "packages/backend/package.json",
       "use": "@vercel/node"
-    },
-    {
-      "src": "packages/frontend",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "packages/frontend" }
     }
   ],
   "routes": [
@@ -43,18 +38,6 @@
     {
       "src": "/admin(.*)",
       "dest": "packages/backend/src/server.js"
-    },
-    {
-      "src": "/(?!api/|auth|campaigns|donations|rewards|missions|users|admin)(.*)",
-      "dest": "packages/frontend/$1"
-    },
-    {
-      "src": "/(.*\\..*)",
-      "dest": "packages/frontend/$1"
-    },
-    {
-      "src": "/",
-      "dest": "packages/frontend/beranda/index.html"
     }
   ]
 }

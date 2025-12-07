@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "buildCommand": "cd packages/backend && npm run build",
+  "outputDirectory": "packages/backend",
+  "framework": "nodejs",
+  "nodeVersion": "18.x"
+}
